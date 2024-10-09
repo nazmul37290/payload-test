@@ -23,6 +23,10 @@ import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
+import Categories from '@/collections/Categories'
+import SiteSetting from '@/collections/SiteSetting'
+import OurDashboard from '@/views/OurDashboard'
+import Menus from '@/collections/Menus'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -59,6 +63,9 @@ export default buildConfig({
     {
       slug: 'media',
       upload: true,
+      access: {
+        read: () => true,
+      },
       fields: [
         {
           name: 'text',
@@ -66,7 +73,10 @@ export default buildConfig({
         },
       ],
     },
+    Categories,
+    Menus,
   ],
+  globals: [SiteSetting],
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
@@ -93,6 +103,12 @@ export default buildConfig({
       email: 'dev@payloadcms.com',
       password: 'test',
       prefillOnly: true,
+    },
+
+    components: {
+      views: {
+        // Dashboard: OurDashboard,
+      },
     },
   },
   async onInit(payload) {

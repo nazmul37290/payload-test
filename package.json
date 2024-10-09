@@ -34,15 +34,19 @@
     "payload": "3.0.0-canary.0374de4",
     "react": "19.0.0-rc-06d0b89e-20240801",
     "react-dom": "19.0.0-rc-06d0b89e-20240801",
-    "sharp": "0.32.6"
+    "sharp": "0.32.6",
+    "tailwindcss": "^3.4.13"
   },
   "devDependencies": {
     "@payloadcms/graphql": "3.0.0-canary.0374de4",
     "@types/node": "^20.14.9",
     "@types/react": "npm:types-react@19.0.0-rc.0",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.0",
+    "autoprefixer": "^10.4.20",
+    "daisyui": "^4.12.12",
     "eslint": "^8.57.0",
     "eslint-config-next": "15.0.0-canary.104",
+    "postcss": "^8.4.47",
     "typescript": "5.5.4"
   },
   "pnpm": {
